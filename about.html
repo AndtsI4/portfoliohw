@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ანდრია ციციშვილი | ჩემ შესახებ</title>
+
+    <!-- Google Fonts (Noto Sans Georgian, Outfit, Fira Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', 'Outfit', 'sans-serif'],
+                        heading: ['Outfit', '"Noto Sans Georgian"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- ფონური დეკორაციები -->
+    <div class="fixed top-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="fixed bottom-20 left-10 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <!-- საიტის ზედა ნაწილი (Header) და ნავიგაცია (Flex კონტეინერი) -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                        აც
+                    </div>
+                    <div>
+                        <h1 class="text-base sm:text-lg font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent group-hover:from-indigo-400 group-hover:to-cyan-400 transition-colors">
+                            ანდრია ციციშვილი
+                        </h1>
+                        <p class="text-xs text-indigo-400 font-mono hidden sm:block">Portfolio &bull; Developer</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- დესკტოპ ნავიგაცია Flexbox-ით -->
+            <nav class="hidden md:block">
+                <ul class="flex items-center gap-1 sm:gap-2">
+                    <li>
+                        <a href="index.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
+                            <span>მთავარი</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm flex items-center gap-1.5 transition-all">
+                            <span>ჩემ შესახებ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
+                            <span>პროექტები</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
+                            <span>კონტაქტი</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- ბურგერ მენიუს ღილაკი მობილურისთვის -->
+            <button id="burger-menu-btn" type="button"
+                class="md:hidden inline-flex items-center justify-center p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+                aria-label="მენიუს გახსნა" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fa-solid fa-bars text-xl" id="burger-icon"></i>
+            </button>
+        </div>
+
+        <!-- მობილური მენიუს ჩამოსაშლელი კონტეინერი -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-4 py-3 space-y-1">
+            <ul class="flex flex-col space-y-1.5 text-sm font-medium text-slate-300">
+                <li>
+                    <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
+                        <i class="fa-solid fa-house w-4 text-center text-slate-400"></i>
+                        <span>მთავარი</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-indigo-300 bg-indigo-600/20 border border-indigo-500/30 font-semibold transition-colors">
+                        <i class="fa-regular fa-user w-4 text-center text-indigo-400"></i>
+                        <span>ჩემ შესახებ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
+                        <i class="fa-solid fa-layer-group w-4 text-center text-slate-400"></i>
+                        <span>პროექტები</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
+                        <i class="fa-regular fa-envelope w-4 text-center text-slate-400"></i>
+                        <span>კონტაქტი</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- მთავარი შინაარსი (Main) -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 space-y-12 sm:space-y-16">
+
+        <!-- ძირითადი ინფორმაცია (Flex & Grid ბარათი) -->
+        <section class="bg-gradient-to-br from-slate-900/90 via-slate-900/50 to-slate-950 border border-slate-800/80 rounded-3xl p-5 sm:p-8 md:p-10 shadow-xl relative overflow-hidden">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+                <div class="space-y-3 sm:space-y-4 text-center md:text-left flex-1">
+                    <span class="text-xs font-mono text-indigo-400 uppercase tracking-widest block">ინფორმაცია</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">ზოგადი ინფორმაცია</h2>
+                    <div>
+                        <p class="text-base sm:text-lg md:text-xl text-slate-200">
+                            სახელი და გვარი: <strong class="text-indigo-400 font-semibold">ანდრია ციციშვილი</strong>
+                        </p>
+                    </div>
+                    <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl">
+                        ვსწავლობ და ვმუშაობ პროგრამული უზრუნველყოფის დეველოპმენტში. განსაკუთრებით მაინტერესებს ეფექტური ალგორითმები C++-ში, თანამედროვე ვებ-ტექნოლოგიები Python Flask-ით, აპარატურული ექსპერიმენტები Arduino-თი და Linux სისტემების ოპტიმიზაცია.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-mono bg-indigo-950/80 text-indigo-300 border border-indigo-800/60">C++ Enthusiast</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/80 text-cyan-300 border border-cyan-800/60">Python / Flask</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-950/80 text-purple-300 border border-purple-800/60">Void Linux</span>
+                        <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-950/80 text-emerald-300 border border-emerald-800/60">Geolab Student</span>
+                    </div>
+                </div>
+
+                <!-- Visual Illustration -->
+                <div class="w-full md:w-80 flex-shrink-0 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-tr from-purple-500 to-indigo-500 rounded-2xl blur opacity-40 group-hover:opacity-75 transition duration-300"></div>
+                        <img src="images/about.svg" alt="კოდის ილუსტრაცია" class="relative rounded-2xl border border-slate-800 shadow-xl max-w-xs sm:max-w-sm w-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ტექნიკური უნარები (Skills) (Flex & Grid კონტეინერი) -->
+        <section class="space-y-6 sm:space-y-8">
+            <div class="border-b border-slate-800 pb-3 sm:pb-4">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-1">კომპეტენციები</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">უნარ-ჩვევები (Skills)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <!-- სტატია 1 -->
+                <article class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 sm:p-6 hover:border-indigo-500/40 hover:bg-slate-900/90 transition-all duration-300 shadow-lg space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-600/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center font-mono font-bold">
+                            01
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white">პროგრამირება და ალგორითმები</h3>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-indigo-400 mt-1">&bull;</span>
+                            <span><strong>C++ competitive coding</strong> — ალგორითმული აზროვნება, დინამიური დაპროგრამება, გრაფები და ოპტიმიზებული კოდი.</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- სტატია 2 -->
+                <article class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 sm:p-6 hover:border-cyan-500/40 hover:bg-slate-900/90 transition-all duration-300 shadow-lg space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-600/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center font-mono font-bold">
+                            02
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white">ვებ-დეველოპმენტი</h3>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-cyan-400 mt-1">&bull;</span>
+                            <span>Web dev using Python Flask, SQLAlchemy (SQLA), Bootstrap, HTML and CSS. სრული CRUD ფუნქციონალი, მონაცემთა მოდელირება და რესპონსიული დიზაინი.</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- სტატია 3 -->
+                <article class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 sm:p-6 hover:border-amber-500/40 hover:bg-slate-900/90 transition-all duration-300 shadow-lg space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-600/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-mono font-bold">
+                            03
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white">აპარატურა და კიბერუსაფრთხოება</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-amber-400 mt-1">&bull;</span>
+                            <span><strong>Arduino</strong> (მუშაობა Arduino-ს მიკროკონტროლერებთან, სენსორებთან და პერიფერიასთან).</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-amber-400 mt-1">&bull;</span>
+                            <span><strong>Basic cybersecurity and fundamentals</strong> — ქსელური უსაფრთხოების საფუძვლები, სისტემური დაცულობა.</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- სტატია 4 -->
+                <article class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 sm:p-6 hover:border-purple-500/40 hover:bg-slate-900/90 transition-all duration-300 shadow-lg space-y-3 sm:space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-purple-600/10 border border-purple-500/20 text-purple-400 flex items-center justify-center font-mono font-bold">
+                            04
+                        </div>
+                        <h3 class="text-base sm:text-lg font-bold text-white">ოპერაციული სისტემები და გარემო</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-purple-400 mt-1">&bull;</span>
+                            <span><strong>Void Linux with Sway</strong> (Wayland tiling window manager, runit init, მინიმალისტური და სწრაფი სამუშაო გარემო).</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-purple-400 mt-1">&bull;</span>
+                            <span><strong>crDroid ROM</strong> — მორგებული Android სისტემა და მოწყობილობის მართვა.</span>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- ტექნოლოგიების შემაჯამებელი ცხრილი (Tailwind Styled Table) -->
+        <section class="space-y-4 sm:space-y-6">
+            <div class="border-b border-slate-800 pb-3 sm:pb-4">
+                <span class="text-xs font-mono text-indigo-400 uppercase tracking-widest block mb-1">სტეკის მიმოხილვა</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">ტექნიკური სტეკის შეჯამება</h2>
+            </div>
+
+            <div class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 shadow-xl backdrop-blur-sm">
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[500px] text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-800/80 border-b border-slate-700/80 text-slate-200">
+                                <th class="py-3.5 sm:py-4 px-4 sm:px-6 font-semibold uppercase tracking-wider text-xs">კატეგორია</th>
+                                <th class="py-3.5 sm:py-4 px-4 sm:px-6 font-semibold uppercase tracking-wider text-xs">ტექნოლოგიები / ინსტრუმენტები</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                    <span>Competitive Coding</span>
+                                </td>
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6">
+                                    <span class="inline-block px-3 py-1 rounded-lg text-xs font-mono bg-indigo-950/70 text-indigo-300 border border-indigo-800/50">C++</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                    <span>Web Development</span>
+                                </td>
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-cyan-300 border border-slate-700/60">Python (Flask)</span>
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-cyan-300 border border-slate-700/60">SQLAlchemy (SQLA)</span>
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-cyan-300 border border-slate-700/60">Bootstrap</span>
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-cyan-300 border border-slate-700/60">HTML</span>
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-cyan-300 border border-slate-700/60">CSS</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                    <span>Hardware &amp; Security</span>
+                                </td>
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-amber-300 border border-slate-700/60">Arduino</span>
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-amber-300 border border-slate-700/60">Basic Cybersecurity</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                    <span>Operating Systems</span>
+                                </td>
+                                <td class="py-3.5 sm:py-4 px-4 sm:px-6">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-purple-300 border border-slate-700/60">Void Linux (Sway)</span>
+                                        <span class="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-800 text-purple-300 border border-slate-700/60">crDroid ROM</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- გვერდითი ბლოკი (Aside) (Flex Callout Card) -->
+        <aside class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-950/60 via-slate-900 to-slate-900 border border-indigo-500/30 p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 shadow-xl">
+            <div class="space-y-2 text-center md:text-left">
+                <h3 class="text-base sm:text-xl font-bold text-white flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-regular fa-envelope text-indigo-400"></i>
+                    <span>საკონტაქტო ელფოსტა</span>
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
+                    დამატებითი დეტალებისთვის იხილეთ <a href="contact.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">კონტაქტის გვერდი</a> ან მომწერეთ პირდაპირ:
+                </p>
+            </div>
+            <div class="w-full sm:w-auto text-center">
+                <a href="mailto:andria.tsitsishvilite06@geolab.edu.ge" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs sm:text-sm font-semibold shadow-lg shadow-indigo-600/30 hover:scale-105 transition-all break-all">
+                    <span>andria.tsitsishvilite06@geolab.edu.ge</span>
+                </a>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- საიტის ქვედა ნაწილი (Footer) (Flex კონტეინერი) -->
+    <footer class="mt-auto border-t border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <section class="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-center sm:text-left">
+                <h4 class="text-xs uppercase tracking-wider text-slate-500 font-mono">ნავიგაცია:</h4>
+                <ul class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-sm text-slate-400 font-medium">
+                    <li><a href="index.html" class="hover:text-white transition-colors">მთავარი</a></li>
+                    <li><a href="about.html" class="text-indigo-400 font-semibold">ჩემ შესახებ</a></li>
+                    <li><a href="projects.html" class="hover:text-white transition-colors">პროექტები</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">კონტაქტი</a></li>
+                </ul>
+            </section>
+            <div class="text-center md:text-right text-xs text-slate-400 space-y-1.5">
+                <p class="flex flex-wrap items-center justify-center md:justify-end gap-1.5">
+                    <span class="text-slate-500">ელ-ფოსტა:</span>
+                    <a href="mailto:andria.tsitsishvilite06@geolab.edu.ge" class="text-indigo-400 hover:text-indigo-300 hover:underline font-mono break-all">
+                        andria.tsitsishvilite06@geolab.edu.ge
+                    </a>
+                </p>
+                <p class="text-slate-500">&copy; 2026 ანდრია ციციშვილი. ყველა უფლება დაცულია.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript ნავიგაციისა და ბურგერ მენიუსთვის -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>

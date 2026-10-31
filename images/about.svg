@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="500" height="350">
+  <defs>
+    <linearGradient id="abGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="350" rx="12" fill="url(#abGrad)"/>
+  <!-- Code screen mockup -->
+  <rect x="40" y="40" width="420" height="270" rx="8" fill="#0f172a"/>
+  <!-- Dots -->
+  <circle cx="65" cy="60" r="5" fill="#ef4444"/>
+  <circle cx="80" cy="60" r="5" fill="#f59e0b"/>
+  <circle cx="95" cy="60" r="5" fill="#10b981"/>
+  <!-- Code lines -->
+  <text x="65" y="100" font-family="monospace" font-size="14" fill="#38bdf8">&lt;!DOCTYPE html&gt;</text>
+  <text x="65" y="125" font-family="monospace" font-size="14" fill="#a78bfa">&lt;html lang="ka"&gt;</text>
+  <text x="85" y="150" font-family="monospace" font-size="14" fill="#f43f5e">&lt;head&gt;</text>
+  <text x="105" y="175" font-family="monospace" font-size="14" fill="#34d399">&lt;title&gt;ჩემი პორტფოლიო&lt;/title&gt;</text>
+  <text x="85" y="200" font-family="monospace" font-size="14" fill="#f43f5e">&lt;/head&gt;</text>
+  <text x="85" y="225" font-family="monospace" font-size="14" fill="#fbbf24">&lt;body&gt;</text>
+  <text x="105" y="250" font-family="monospace" font-size="14" fill="#e2e8f0">&lt;h1&gt;გამარჯობა, მსოფლიო!&lt;/h1&gt;</text>
+  <text x="85" y="275" font-family="monospace" font-size="14" fill="#fbbf24">&lt;/body&gt;</text>
+</svg>
