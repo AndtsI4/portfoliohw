@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ka" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,13 @@
     <!-- Google Fonts (Noto Sans Georgian, Outfit, Fira Code) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,28 +46,46 @@
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+<body
+    class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
 
     <!-- ფონური დეკორაციები -->
-    <div class="fixed top-10 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-    <div class="fixed bottom-10 left-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="fixed top-10 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none -z-10">
+    </div>
+    <div class="fixed bottom-10 left-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10">
+    </div>
 
     <!-- საიტის ზედა ნაწილი (Header) და ნავიგაცია (Flex კონტეინერი) -->
     <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
                         აც
                     </div>
                     <div>
-                        <h1 class="text-base sm:text-lg font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent group-hover:from-indigo-400 group-hover:to-cyan-400 transition-colors">
+                        <h1
+                            class="text-base sm:text-lg font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent group-hover:from-indigo-400 group-hover:to-cyan-400 transition-colors">
                             ანდრია ციციშვილი
                         </h1>
                         <p class="text-xs text-indigo-400 font-mono hidden sm:block">Portfolio &bull; Developer</p>
@@ -76,22 +97,33 @@
             <nav class="hidden md:block">
                 <ul class="flex items-center gap-1 sm:gap-2">
                     <li>
-                        <a href="index.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
+                        <a href="index.html"
+                            class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
                             <span>მთავარი</span>
                         </a>
                     </li>
                     <li>
-                        <a href="about.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
+                        <a href="about.html"
+                            class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
                             <span>ჩემ შესახებ</span>
                         </a>
                     </li>
                     <li>
-                        <a href="projects.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
+                        <a href="projects.html"
+                            class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
                             <span>პროექტები</span>
                         </a>
                     </li>
                     <li>
-                        <a href="contact.html" class="px-3 sm:px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm flex items-center gap-1.5 transition-all">
+                        <a href="employees.html"
+                            class="px-3 sm:px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-users text-xs"></i>
+                            <span>თანამშრომლები</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="px-3 sm:px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm flex items-center gap-1.5 transition-all">
                             <span>კონტაქტი</span>
                         </a>
                     </li>
@@ -107,28 +139,40 @@
         </div>
 
         <!-- მობილური მენიუს ჩამოსაშლელი კონტეინერი -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-4 py-3 space-y-1">
+        <div id="mobile-menu"
+            class="hidden md:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-4 py-3 space-y-1">
             <ul class="flex flex-col space-y-1.5 text-sm font-medium text-slate-300">
                 <li>
-                    <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
                         <i class="fa-solid fa-house w-4 text-center text-slate-400"></i>
                         <span>მთავარი</span>
                     </a>
                 </li>
                 <li>
-                    <a href="about.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
+                    <a href="about.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
                         <i class="fa-regular fa-user w-4 text-center text-slate-400"></i>
                         <span>ჩემ შესახებ</span>
                     </a>
                 </li>
                 <li>
-                    <a href="projects.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
+                    <a href="projects.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
                         <i class="fa-solid fa-layer-group w-4 text-center text-slate-400"></i>
                         <span>პროექტები</span>
                     </a>
                 </li>
                 <li>
-                    <a href="contact.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-indigo-300 bg-indigo-600/20 border border-indigo-500/30 font-semibold transition-colors">
+                    <a href="employees.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:text-white hover:bg-slate-800/80 transition-colors">
+                        <i class="fa-solid fa-users w-4 text-center text-slate-400"></i>
+                        <span>თანამშრომლები</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-indigo-300 bg-indigo-600/20 border border-indigo-500/30 font-semibold transition-colors">
                         <i class="fa-regular fa-envelope w-4 text-center text-indigo-400"></i>
                         <span>კონტაქტი</span>
                     </a>
@@ -152,12 +196,14 @@
 
             <!-- Flex / Grid განლაგება: საკონტაქტო ბარათები & შეტყობინების ფორმა -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
-                
+
                 <!-- მარცხენა ბლოკი: მისამართი და ბარათები -->
                 <div class="lg:col-span-5 space-y-5 sm:space-y-6">
-                    <address class="not-italic bg-slate-900/60 border border-slate-800/80 rounded-3xl p-5 sm:p-8 space-y-5 sm:space-y-6 shadow-xl backdrop-blur-sm block">
+                    <address
+                        class="not-italic bg-slate-900/60 border border-slate-800/80 rounded-3xl p-5 sm:p-8 space-y-5 sm:space-y-6 shadow-xl backdrop-blur-sm block">
                         <div class="flex items-center gap-4 border-b border-slate-800 pb-4 sm:pb-5">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-indigo-600/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
+                            <div
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-indigo-600/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
                                 <i class="fa-regular fa-user"></i>
                             </div>
                             <div>
@@ -170,25 +216,31 @@
 
                         <div class="space-y-3.5 sm:space-y-4 text-xs sm:text-sm text-slate-300">
                             <!-- Email Card -->
-                            <div class="bg-slate-950/60 border border-slate-800/90 rounded-2xl p-3.5 sm:p-4 space-y-1.5 hover:border-indigo-500/40 transition-colors">
-                                <span class="text-xs font-mono text-indigo-400 uppercase tracking-wide block">ელ-ფოსტა</span>
+                            <div
+                                class="bg-slate-950/60 border border-slate-800/90 rounded-2xl p-3.5 sm:p-4 space-y-1.5 hover:border-indigo-500/40 transition-colors">
+                                <span
+                                    class="text-xs font-mono text-indigo-400 uppercase tracking-wide block">ელ-ფოსტა</span>
                                 <p class="font-mono text-xs sm:text-sm break-all">
-                                    <a href="mailto:andria.tsitsishvilite06@geolab.edu.ge" class="text-indigo-300 hover:text-indigo-200 underline underline-offset-2 break-all">
+                                    <a href="mailto:andria.tsitsishvilite06@geolab.edu.ge"
+                                        class="text-indigo-300 hover:text-indigo-200 underline underline-offset-2 break-all">
                                         andria.tsitsishvilite06@geolab.edu.ge
                                     </a>
                                 </p>
                             </div>
 
                             <!-- Affiliation Card -->
-                            <div class="bg-slate-950/60 border border-slate-800/90 rounded-2xl p-3.5 sm:p-4 space-y-1.5">
-                                <span class="text-xs font-mono text-cyan-400 uppercase tracking-wide block">აკადემიური გარემო</span>
+                            <div
+                                class="bg-slate-950/60 border border-slate-800/90 rounded-2xl p-3.5 sm:p-4 space-y-1.5">
+                                <span class="text-xs font-mono text-cyan-400 uppercase tracking-wide block">აკადემიური
+                                    გარემო</span>
                                 <p class="text-slate-200 font-medium">GeoLab — ვებ-ტექნოლოგიები</p>
                             </div>
 
                             <!-- Availability status -->
                             <div class="flex items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2">
                                 <span class="flex h-3 w-3 relative flex-shrink-0">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                     <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                                 </span>
                                 <span class="text-xs text-slate-400">პასუხი 24 საათის განმავლობაში</span>
@@ -197,18 +249,23 @@
                     </address>
 
                     <!-- სწრაფი ბმულები / სოციალური ქსელები -->
-                    <div class="bg-gradient-to-br from-indigo-950/30 to-slate-900 border border-indigo-500/20 rounded-3xl p-5 sm:p-6 shadow-lg space-y-3">
-                        <h3 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-300 font-mono">პროფილები და კოდი</h3>
+                    <div
+                        class="bg-gradient-to-br from-indigo-950/30 to-slate-900 border border-indigo-500/20 rounded-3xl p-5 sm:p-6 shadow-lg space-y-3">
+                        <h3 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-300 font-mono">
+                            პროფილები და კოდი</h3>
                         <div class="flex flex-wrap gap-2 pt-1">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 transition-colors">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 transition-colors">
                                 <i class="fa-brands fa-github text-sm"></i>
                                 <span>GitHub</span>
                             </a>
-                            <a href="https://codeforces.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 transition-colors">
+                            <a href="https://codeforces.com" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 transition-colors">
                                 <i class="fa-solid fa-code text-sm"></i>
                                 <span>Codeforces</span>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 transition-colors">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 transition-colors">
                                 <i class="fa-brands fa-linkedin text-sm"></i>
                                 <span>LinkedIn</span>
                             </a>
@@ -217,33 +274,47 @@
                 </div>
 
                 <!-- მარჯვენა ბლოკი: საკონტაქტო ფორმა -->
-                <div class="lg:col-span-7 bg-slate-900/60 border border-slate-800/80 rounded-3xl p-5 sm:p-8 shadow-xl backdrop-blur-sm">
+                <div
+                    class="lg:col-span-7 bg-slate-900/60 border border-slate-800/80 rounded-3xl p-5 sm:p-8 shadow-xl backdrop-blur-sm">
                     <h3 class="text-lg sm:text-xl font-bold text-white mb-2">მომწერეთ შეტყობინება</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mb-5 sm:mb-6">შეავსეთ ფორმა და მე დაგიკავშირდებით მითითებულ ელფოსტაზე.</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mb-5 sm:mb-6">შეავსეთ ფორმა და მე დაგიკავშირდებით
+                        მითითებულ ელფოსტაზე.</p>
 
-                    <form onsubmit="event.preventDefault(); alert('მადლობა შეტყობინებისთვის! ანდრია მალე გიპასუხებთ.');" class="space-y-4 sm:space-y-5">
+                    <form onsubmit="event.preventDefault(); alert('მადლობა შეტყობინებისთვის! ანდრია მალე გიპასუხებთ.');"
+                        class="space-y-4 sm:space-y-5">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label for="sender-name" class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">თქვენი სახელი</label>
-                                <input id="sender-name" type="text" required placeholder="თქვენი სახელი" class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                                <label for="sender-name"
+                                    class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">თქვენი
+                                    სახელი</label>
+                                <input id="sender-name" type="text" required placeholder="თქვენი სახელი"
+                                    class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all">
                             </div>
                             <div>
-                                <label for="sender-email" class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">თქვენი ელ-ფოსტა</label>
-                                <input id="sender-email" type="email" required placeholder="name@example.com" class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                                <label for="sender-email"
+                                    class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">თქვენი
+                                    ელ-ფოსტა</label>
+                                <input id="sender-email" type="email" required placeholder="name@example.com"
+                                    class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all">
                             </div>
                         </div>
 
                         <div>
-                            <label for="subject" class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">თემა</label>
-                            <input id="subject" type="text" required placeholder="პროექტთან დაკავშირებით" class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                            <label for="subject"
+                                class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">თემა</label>
+                            <input id="subject" type="text" required placeholder="პროექტთან დაკავშირებით"
+                                class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all">
                         </div>
 
                         <div>
-                            <label for="message" class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">შეტყობინება</label>
-                            <textarea id="message" rows="4" required placeholder="დაწერეთ თქვენი შეტყობინება აქ..." class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none"></textarea>
+                            <label for="message"
+                                class="block text-xs font-medium text-slate-300 mb-1.5 uppercase font-mono">შეტყობინება</label>
+                            <textarea id="message" rows="4" required placeholder="დაწერეთ თქვენი შეტყობინება აქ..."
+                                class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none"></textarea>
                         </div>
 
-                        <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                        <button type="submit"
+                            class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                             <span>გაგზავნა</span>
                             <i class="fa-solid fa-paper-plane text-xs"></i>
                         </button>
@@ -256,20 +327,24 @@
 
     <!-- საიტის ქვედა ნაწილი (Footer) (Flex კონტეინერი) -->
     <footer class="mt-auto border-t border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div
+            class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <section class="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-center sm:text-left">
                 <h4 class="text-xs uppercase tracking-wider text-slate-500 font-mono">ნავიგაცია:</h4>
-                <ul class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-sm text-slate-400 font-medium">
+                <ul
+                    class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-sm text-slate-400 font-medium">
                     <li><a href="index.html" class="hover:text-white transition-colors">მთავარი</a></li>
                     <li><a href="about.html" class="hover:text-white transition-colors">ჩემ შესახებ</a></li>
                     <li><a href="projects.html" class="hover:text-white transition-colors">პროექტები</a></li>
+                    <li><a href="employees.html" class="hover:text-white transition-colors">თანამშრომლები</a></li>
                     <li><a href="contact.html" class="text-indigo-400 font-semibold">კონტაქტი</a></li>
                 </ul>
             </section>
             <div class="text-center md:text-right text-xs text-slate-400 space-y-1.5">
                 <p class="flex items-center justify-center md:justify-end gap-1.5">
                     <span class="text-slate-500">ელ-ფოსტა:</span>
-                    <a href="mailto:andria.tsitsishvilite06@geolab.edu.ge" class="text-indigo-400 hover:text-indigo-300 hover:underline font-mono break-all">
+                    <a href="mailto:andria.tsitsishvilite06@geolab.edu.ge"
+                        class="text-indigo-400 hover:text-indigo-300 hover:underline font-mono break-all">
                         andria.tsitsishvilite06@geolab.edu.ge
                     </a>
                 </p>
@@ -281,7 +356,5 @@
     <!-- JavaScript ნავიგაციისა და ბურგერ მენიუსთვის -->
     <script src="script.js"></script>
 </body>
-</html>
 
-</body>
 </html>
