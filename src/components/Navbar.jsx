@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { personalInfo, navItems } from '../data/portfolioData';
 
 /**
- * Responsive Header & Navigation Component
- * Features desktop navigation, mobile burger menu toggle with state, and smooth scroll
+ * Responsive Engineering Navbar Component
+ * Desktop & mobile navigation, state-driven mobile drawer, keyboard accessibility
  */
 export default function Navbar({ activeSection, onNavigate }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen((prev) => !prev);
-  };
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const handleLinkClick = (href) => {
     setMobileMenuOpen(false);
@@ -20,9 +27,9 @@ export default function Navbar({ activeSection, onNavigate }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-        {/* Logo and Brand */}
+    <header className="sticky top-0 z-50 bg-dark-950/85 backdrop-blur-md border-b border-slate-800/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        {/* Brand Logo */}
         <div className="flex items-center gap-3">
           <a
             href="#hero"
@@ -30,25 +37,27 @@ export default function Navbar({ activeSection, onNavigate }) {
               e.preventDefault();
               handleLinkClick('#hero');
             }}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2.5 group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-dark-900 border border-slate-700/80 text-tech-cyan flex items-center justify-center font-mono font-bold text-sm shadow-inner group-hover:border-tech-cyan group-hover:text-white transition-colors">
               {personalInfo.initials}
             </div>
             <div>
-              <h1 className="text-base sm:text-lg font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent group-hover:from-indigo-400 group-hover:to-cyan-400 transition-colors">
+              <div className="text-sm sm:text-base font-bold text-white group-hover:text-tech-cyan transition-colors leading-tight">
                 {personalInfo.name}
-              </h1>
-              <p className="text-xs text-indigo-400 font-mono hidden sm:block">
-                Portfolio &bull; React
-              </p>
+              </div>
+              <div className="text-[11px] font-mono text-slate-400 hidden sm:block">
+                <span>sway@void</span>
+                <span className="text-slate-600"> :: </span>
+                <span className="text-tech-emerald">ready</span>
+              </div>
             </div>
           </a>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <nav className="hidden md:block">
-          <ul className="flex items-center gap-1 sm:gap-2">
+          <ul className="flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.replace('#', '');
               return (
@@ -59,13 +68,13 @@ export default function Navbar({ activeSection, onNavigate }) {
                       e.preventDefault();
                       handleLinkClick(item.href);
                     }}
-                    className={`px-3 sm:px-4 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 ${
                       isActive
-                        ? 'bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm font-semibold'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                        ? 'bg-dark-900 text-tech-cyan border border-tech-cyan/30 font-semibold shadow-sm'
+                        : 'text-slate-400 hover:text-slate-200 hover:bg-dark-900/60'
                     }`}
                   >
-                    <i className={`${item.icon} text-xs`}></i>
+                    <i className={`${item.icon} text-[11px]`}></i>
                     <span>{item.label}</span>
                   </a>
                 </li>
@@ -74,17 +83,17 @@ export default function Navbar({ activeSection, onNavigate }) {
           </ul>
         </nav>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Burger Button */}
         <button
           type="button"
-          onClick={toggleMobileMenu}
-          className="md:hidden inline-flex items-center justify-center p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-slate-300 hover:text-white bg-dark-900 border border-slate-800 focus:outline-none focus:ring-1 focus:ring-tech-cyan transition-colors"
           aria-label={mobileMenuOpen ? "მენიუს დახურვა" : "მენიუს გახსნა"}
           aria-expanded={mobileMenuOpen}
         >
           <i
             className={`fa-solid ${
-              mobileMenuOpen ? 'fa-xmark text-xl text-indigo-400' : 'fa-bars text-xl'
+              mobileMenuOpen ? 'fa-xmark text-lg text-tech-cyan' : 'fa-bars text-lg'
             }`}
           ></i>
         </button>
@@ -92,8 +101,8 @@ export default function Navbar({ activeSection, onNavigate }) {
 
       {/* Mobile Drawer Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-4 py-3 space-y-1 animate-fadeIn">
-          <ul className="flex flex-col space-y-1.5 text-sm font-medium text-slate-300">
+        <div className="md:hidden border-t border-slate-800 bg-dark-950/95 backdrop-blur-xl px-4 py-3 space-y-1 animate-slide-down">
+          <ul className="flex flex-col space-y-1 text-xs font-mono text-slate-300">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.replace('#', '');
               return (
@@ -104,13 +113,13 @@ export default function Navbar({ activeSection, onNavigate }) {
                       e.preventDefault();
                       handleLinkClick(item.href);
                     }}
-                    className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors ${
+                    className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors ${
                       isActive
-                        ? 'text-indigo-300 bg-indigo-600/20 border border-indigo-500/30 font-semibold'
-                        : 'hover:text-white hover:bg-slate-800/80'
+                        ? 'text-tech-cyan bg-dark-900 border border-tech-cyan/30 font-semibold'
+                        : 'hover:text-white hover:bg-dark-900/60'
                     }`}
                   >
-                    <i className={`${item.icon} w-4 text-center ${isActive ? 'text-indigo-400' : 'text-slate-400'}`}></i>
+                    <i className={`${item.icon} w-4 text-center ${isActive ? 'text-tech-cyan' : 'text-slate-500'}`}></i>
                     <span>{item.label}</span>
                   </a>
                 </li>

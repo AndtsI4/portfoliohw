@@ -5,53 +5,61 @@ import { projects } from '../data/portfolioData';
 
 /**
  * Projects Section Component
- * Features dynamic category filtering and renders reusable ProjectCard components
+ * Fully data-driven category filtering with dynamic project count badges
  */
 export default function ProjectsSection() {
   const [filter, setFilter] = useState('all');
 
   const filterCategories = [
-    { id: 'all', label: 'ყველა პროექტი' },
-    { id: 'web', label: 'Web Development' },
-    { id: 'algo', label: 'C++ Algorithms' },
+    { id: 'all', label: 'ყველა' },
+    { id: 'web', label: 'Web Systems' },
+    { id: 'algo', label: 'Algorithms (C++)' },
     { id: 'hardware', label: 'Hardware & IoT' }
   ];
 
   const filteredProjects = projects.filter((p) => {
-    if (filter === 'web') return p.id === 'ecommerce';
-    if (filter === 'algo') return p.id === 'cpp-coding';
-    if (filter === 'hardware') return p.id === 'arduino-iot';
-    return true;
+    if (filter === 'all') return true;
+    return p.category === filter;
   });
 
   return (
     <section id="projects" className="scroll-mt-24 space-y-6 sm:space-y-8">
       <SectionHeader
-        badge="პორტფოლიო & ნამუშევრები"
-        badgeColor="cyan"
+        badge="პორტფოლიო & ინჟინერია"
+        badgeColor="emerald"
         title="შესრულებული პროექტები"
-        icon="fa-solid fa-layer-group"
-        description="სხვადასხვა მიმართულებით შექმნილი პრაქტიკული პროექტები: ვებ-აპლიკაციები, ალგორითმები და აპარატურა"
+        icon="fa-solid fa-code-branch"
+        description="პრაქტიკული ინჟინერია: ვებ-სერვერები, C++ ალგორითმული სისტემები და აპარატურული ტელემეტრია"
         action={
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            {filterCategories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setFilter(cat.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
-                  filter === cat.id
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                    : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-dark-900 border border-slate-800">
+            {filterCategories.map((cat) => {
+              const count =
+                cat.id === 'all'
+                  ? projects.length
+                  : projects.filter((p) => p.category === cat.id).length;
+
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setFilter(cat.id)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 ${
+                    filter === cat.id
+                      ? 'bg-tech-emerald/20 text-tech-emerald border border-tech-emerald/40 font-semibold'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <span>{cat.label}</span>
+                  <span className="text-[10px] opacity-70 px-1 py-0.2 rounded bg-dark-950">
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         }
       />
 
-      {/* Render reusable ProjectCards */}
+      {/* Render Project Cards */}
       <div className="space-y-6 sm:space-y-8">
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />

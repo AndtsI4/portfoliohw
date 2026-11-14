@@ -2,64 +2,72 @@ import React from 'react';
 
 /**
  * Reusable Employee Card Component
- * Renders data fetched from the JSONPlaceholder API with responsive actions and styling
+ * Engineering layout with avatar initials, company info, external links, and action buttons
  */
-export default function EmployeeCard({ employee, onDelete }) {
+export default function EmployeeCard({ employee, onDelete, onViewPosts }) {
   const { id, name, username, email, phone, website, company, address } = employee;
 
-  // Generate initials for the avatar badge
   const initials = name
     ? name
         .split(' ')
-        .map((part) => part[0])
+        .filter(Boolean)
+        .map((p) => p[0])
         .slice(0, 2)
         .join('')
         .toUpperCase()
     : 'U';
 
-  // Deterministic avatar gradient based on id
-  const gradients = [
-    'from-indigo-600 to-cyan-500',
-    'from-purple-600 to-pink-500',
-    'from-emerald-600 to-teal-500',
-    'from-amber-600 to-orange-500',
-    'from-blue-600 to-indigo-500'
-  ];
-  const gradient = gradients[(id || 0) % gradients.length];
+  const webUrl = website
+    ? website.startsWith('http://') || website.startsWith('https://')
+      ? website
+      : `https://${website}`
+    : null;
 
   return (
-    <article className="group bg-slate-900/60 hover:bg-slate-900/95 border border-slate-800/90 hover:border-indigo-500/50 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between relative overflow-hidden">
-      {/* Top subtle glow */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-2xl group-hover:bg-indigo-500/10 pointer-events-none transition-all"></div>
-
+    <article className="group relative bg-dark-900/80 hover:bg-dark-850/95 border border-slate-800/90 hover:border-tech-cyan/40 rounded-2xl p-5 transition-all duration-300 card-hover-effect flex flex-col justify-between shadow-lg">
       <div>
-        {/* Header with Avatar & User Info */}
-        <div className="flex items-start justify-between gap-3 mb-4">
+        {/* Header with Avatar and User Info */}
+        <div className="flex items-start justify-between gap-3 mb-3.5">
           <div className="flex items-center gap-3">
-            <div
-              className={`w-12 h-12 rounded-xl bg-gradient-to-tr ${gradient} flex items-center justify-center font-bold text-white text-base shadow-md shadow-indigo-500/10 flex-shrink-0`}
-            >
+            <div className="w-11 h-11 rounded-xl bg-dark-950 border border-slate-700/80 text-tech-cyan flex items-center justify-center font-mono font-bold text-sm shadow-inner flex-shrink-0 group-hover:border-tech-cyan/60 group-hover:text-white transition-colors">
               {initials}
             </div>
             <div>
-              <h3 className="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
+              <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-tech-cyan transition-colors leading-tight">
                 {name}
               </h3>
-              <p className="text-xs text-indigo-400 font-mono">@{username || 'user'}</p>
+              <p className="text-xs text-slate-400 font-mono mt-0.5">
+                @{username || 'user'}
+              </p>
             </div>
           </div>
-          <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-800 text-slate-400 border border-slate-700/60">
-            ID #{id}
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-dark-950 text-slate-400 border border-slate-800">
+            ID:{id}
           </span>
         </div>
 
-        {/* Details list */}
-        <div className="space-y-2 text-xs sm:text-sm text-slate-300 py-2 border-t border-slate-800/80">
+        {/* Company & Role */}
+        {company && (
+          <div className="mb-3 px-3 py-2 rounded-xl bg-dark-950/70 border border-slate-800/80 text-xs">
+            <div className="flex items-center gap-1.5 text-slate-300 font-medium">
+              <i className="fa-solid fa-briefcase text-[11px] text-tech-cyan"></i>
+              <span className="truncate">{company.name}</span>
+            </div>
+            {company.catchPhrase && (
+              <p className="text-[11px] text-slate-500 italic mt-0.5 truncate">
+                "{company.catchPhrase}"
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Contact info list */}
+        <div className="space-y-1.5 text-xs text-slate-400 font-mono py-1">
           <div className="flex items-center gap-2">
-            <i className="fa-regular fa-envelope text-slate-400 w-4 text-center"></i>
+            <i className="fa-regular fa-envelope text-slate-500 w-3.5 text-center"></i>
             <a
               href={`mailto:${email}`}
-              className="text-slate-300 hover:text-indigo-300 truncate transition-colors"
+              className="hover:text-tech-cyan truncate transition-colors"
             >
               {email}
             </a>
@@ -67,54 +75,57 @@ export default function EmployeeCard({ employee, onDelete }) {
 
           {phone && (
             <div className="flex items-center gap-2">
-              <i className="fa-solid fa-phone text-slate-400 w-4 text-center"></i>
-              <span className="truncate">{phone}</span>
-            </div>
-          )}
-
-          {company && (
-            <div className="flex items-center gap-2">
-              <i className="fa-solid fa-building text-slate-400 w-4 text-center"></i>
-              <span className="truncate text-slate-300 font-medium">
-                {company.name || company}
-              </span>
+              <i className="fa-solid fa-phone text-slate-500 w-3.5 text-center"></i>
+              <span className="truncate text-slate-300">{phone}</span>
             </div>
           )}
 
           {address && (
             <div className="flex items-center gap-2">
-              <i className="fa-solid fa-location-dot text-slate-400 w-4 text-center"></i>
+              <i className="fa-solid fa-location-dot text-slate-500 w-3.5 text-center"></i>
               <span className="truncate text-slate-400">
-                {address.city ? `${address.city}, ${address.street || ''}` : address}
+                {address.city}
               </span>
             </div>
           )}
         </div>
       </div>
 
-      {/* Footer Actions */}
-      <div className="pt-4 mt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
-        {website ? (
-          <a
-            href={`https://${website}`}
-            target="_blank"
-            rel="noreferrer"
-            className="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors"
-          >
-            <i className="fa-solid fa-globe"></i>
-            <span>{website}</span>
-          </a>
-        ) : (
-          <span className="text-xs text-slate-500 font-mono">No website</span>
-        )}
+      {/* Action Footer */}
+      <div className="pt-3.5 mt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          {onViewPosts && (
+            <button
+              onClick={() => onViewPosts(employee)}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-dark-950 hover:bg-slate-800 text-tech-cyan border border-slate-800 hover:border-tech-cyan/40 transition-colors flex items-center gap-1.5"
+              title="თანამშრომლის პოსტების ნახვა"
+            >
+              <i className="fa-regular fa-newspaper text-[10px]"></i>
+              <span>პოსტები</span>
+            </button>
+          )}
+
+          {webUrl && (
+            <a
+              href={webUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[11px] font-mono text-slate-400 hover:text-white flex items-center gap-1 transition-colors"
+              title="ვებსაიტი"
+            >
+              <i className="fa-solid fa-globe text-[10px]"></i>
+              <span className="hidden sm:inline truncate max-w-[80px]">{website}</span>
+            </a>
+          )}
+        </div>
 
         {onDelete && (
           <button
             onClick={() => onDelete(id)}
-            title="თანამშრომლის წაშლა (Client-side)"
-            className="p-1.5 text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 rounded-lg transition-colors"
+            className="p-1.5 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"
+            title="თანამშრომლის წაშლა (HTTP DELETE Demo)"
           >
-            <i className="fa-regular fa-trash-can text-sm"></i>
+            <i className="fa-regular fa-trash-can text-xs"></i>
           </button>
         )}
       </div>

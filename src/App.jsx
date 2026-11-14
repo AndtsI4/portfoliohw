@@ -11,50 +11,56 @@ import Footer from './components/Footer';
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Handle section scrolling
+  // Handle section scrolling and update hash
   const handleNavigate = (href) => {
     const targetId = href.replace('#', '');
     setActiveSection(targetId);
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      if (window.history.pushState) {
+        window.history.pushState(null, '', href);
+      }
     }
   };
 
-  // Observe active section on scroll
+  // Precise scroll spy using getBoundingClientRect
   useEffect(() => {
     const sectionIds = ['hero', 'about', 'skills', 'projects', 'employees', 'contact'];
+    
     const handleScroll = () => {
-      const scrollY = window.scrollY;
+      const triggerPoint = 160;
+      let current = 'hero';
+
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el) {
-          const top = el.offsetTop - 120;
-          const height = el.offsetHeight;
-          if (scrollY >= top && scrollY < top + height) {
-            setActiveSection(id);
-            break;
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= triggerPoint) {
+            current = id;
           }
         }
       }
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
-      {/* Background Decorative Glow Blobs */}
-      <div className="fixed top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="fixed top-1/3 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="fixed bottom-10 left-1/3 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div className="bg-dark-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-tech-cyan selection:text-dark-950 relative overflow-x-hidden">
+      {/* Precision Technical Engineering Background Pattern */}
+      <div className="fixed inset-0 bg-tech-grid opacity-60 pointer-events-none -z-10"></div>
+      <div className="fixed inset-0 vignette-overlay pointer-events-none -z-10"></div>
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-80 bg-gradient-to-b from-cyan-500/[0.035] to-transparent pointer-events-none -z-10"></div>
 
-      {/* Header & Navbar */}
+      {/* Header & Navigation */}
       <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
 
       {/* Main Content Sections */}
-      <main className="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 space-y-16 sm:space-y-28">
+      <main className="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12 space-y-16 sm:space-y-24">
         <Hero onNavigate={handleNavigate} />
         <AboutSection />
         <Specializations />
