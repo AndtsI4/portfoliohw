@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
 
 /**
  * Hero Section Component
- * Modern engineering aesthetic with status pills, terminal intro, and clean actions
+ * Modern engineering aesthetic with status pills, terminal intro, and React Router Link actions
  */
-export default function Hero({ onNavigate }) {
+export default function Hero() {
   return (
-    <section id="hero" className="pt-2 sm:pt-8 space-y-8">
+    <section id="hero" className="pt-2 sm:pt-6 space-y-8">
       {/* Top Technical Status Banner */}
       <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono pb-2 border-b border-slate-800/80 text-slate-400">
         <div className="flex items-center gap-2">
@@ -17,7 +18,7 @@ export default function Hero({ onNavigate }) {
         <div className="hidden sm:flex items-center gap-3 text-slate-500">
           <span>HOST: void-linux</span>
           <span>&bull;</span>
-          <span>STACK: C++20 / React 18</span>
+          <span>ROUTER: react-router</span>
           <span>&bull;</span>
           <span className="text-tech-cyan">ONLINE</span>
         </div>
@@ -44,25 +45,33 @@ export default function Hero({ onNavigate }) {
           </p>
 
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-xl">
-            პროექტი აგებულია სუფთა <strong>React 18</strong> კომპონენტებით, მოდულარული არქიტექტურითა და JSONPlaceholder API ინტეგრაციით.
+            პორტფოლიო აღჭურვილია <strong>React Router</strong> მრავალგვერდიანი ნავიგაციით, ძებნის ფუნქციონალითა და JSONPlaceholder API რესურსებით.
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
-            <button
-              onClick={() => onNavigate('#projects')}
+            <Link
+              to="/projects"
               className="px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-semibold text-dark-950 bg-tech-cyan hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-950 flex items-center gap-2"
             >
               <span>ნახე პროექტები</span>
               <i className="fa-solid fa-arrow-right text-xs"></i>
-            </button>
+            </Link>
 
-            <button
-              onClick={() => onNavigate('#about')}
+            <Link
+              to="/about"
               className="px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-medium text-slate-300 bg-dark-900 hover:bg-dark-850 border border-slate-700/80 hover:text-white transition-all"
             >
               ჩემ შესახებ
-            </button>
+            </Link>
+
+            <Link
+              to="/posts"
+              className="px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-medium text-tech-emerald bg-dark-900 hover:bg-dark-850 border border-tech-emerald/30 transition-colors flex items-center gap-1.5"
+            >
+              <i className="fa-regular fa-newspaper"></i>
+              <span>სტატიები (API)</span>
+            </Link>
 
             <a
               href={personalInfo.github}
@@ -84,7 +93,7 @@ export default function Hero({ onNavigate }) {
               [SRC]
             </div>
             <div className="absolute top-2 right-2 text-[10px] font-mono text-tech-emerald select-none">
-              VER: 2.0
+              VER: 3.0
             </div>
 
             <div className="relative mt-3 rounded-2xl overflow-hidden bg-dark-950 border border-slate-800/80">

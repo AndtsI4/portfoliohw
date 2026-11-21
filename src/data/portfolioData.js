@@ -6,7 +6,7 @@ export const personalInfo = {
   status: "ღიაა ახალი გამოწვევებისა და პროექტებისთვის",
   tagline: "ვწერ ეფექტურ C++ ალგორითმებს, ვქმნი თანამედროვე React & Python ვებ-სისტემებს და ვაპროგრამებ Arduino მიკროკონტროლერებს.",
   about: `გამარჯობა! მე ვარ ანდრია ციციშვილი. ჩემი ფოკუსია კომპიუტერული მეცნიერების ფუნდამენტური და პრაქტიკული მიმართულებები:
-ალგორითმული ოპტიმიზაცია და მონაცემთა სტრუქტურები C++-ში (Competitive Programming), თანამედროვე Full-Stack ვებ-ინჟინერია (React, Python/Flask, REST APIs), და დაბალდონიანი აპარატურული სისტემები (Arduino, Embedded C).
+ალგორითმული ოპტიმიზაცია და მონაცემთა სტრუქტურები C++-ში (Competitive Programming), თანამედროვე Full-Stack ვებ-ინჟინერია (React, React Router, Python/Flask, REST APIs), და დაბალდონიანი აპარატურული სისტემები (Arduino, Embedded C).
 ჩემი სამუშაო გარემო აგებულია მინიმალისტურ და სწრაფ Linux დისტრიბუტივზე (Void Linux + Sway), რაც მაძლევს სისტემის სრულ კონტროლსა და მაქსიმალურ წარმადობას.`,
   email: "andria.tsitsishvilite06@geolab.edu.ge",
   github: "https://github.com/AndtsI4",
@@ -43,9 +43,9 @@ export const specializations = [
     iconText: "</>",
     iconColor: "emerald",
     title: "Full-Stack Web Engineering",
-    subtitle: "React, Python Flask & REST APIs",
-    description: "რესპონსიული, კომპონენტური ვებ-აპლიკაციები React 18-ით, სუფთა RESTful არქიტექტურა, SQLAlchemy ORM მონაცემთა ბაზებითა და Tailwind CSS ინტერფეისით.",
-    tags: ["React 18", "Python Flask", "SQLAlchemy", "Tailwind CSS", "REST API"]
+    subtitle: "React, React Router, Python Flask & REST APIs",
+    description: "რესპონსიული, კომპონენტური ვებ-აპლიკაციები React 18 & React Router-ით, სუფთა RESTful არქიტექტურა, SQLAlchemy ORM მონაცემთა ბაზებითა და Tailwind CSS ინტერფეისით.",
+    tags: ["React 18", "React Router", "Python Flask", "SQLAlchemy", "Tailwind CSS", "REST API"]
   },
   {
     id: "hardware",
@@ -133,10 +133,11 @@ export const projects = [
 ];
 
 export const navItems = [
-  { label: "მთავარი", href: "#hero", icon: "fa-solid fa-terminal" },
-  { label: "ჩემ შესახებ", href: "#about", icon: "fa-regular fa-user" },
-  { label: "სპეციალიზაცია", href: "#skills", icon: "fa-solid fa-microchip" },
-  { label: "პროექტები", href: "#projects", icon: "fa-solid fa-code-branch" },
-  { label: "თანამშრომლები", href: "#employees", icon: "fa-solid fa-users-gear" },
-  { label: "კონტაქტი", href: "#contact", icon: "fa-regular fa-envelope" }
+  { label: "მთავარი", path: "/", icon: "fa-solid fa-terminal" },
+  { label: "ჩემ შესახებ", path: "/about", icon: "fa-regular fa-user" },
+  { label: "სპეციალიზაცია", path: "/skills", icon: "fa-solid fa-microchip" },
+  { label: "პროექტები", path: "/projects", icon: "fa-solid fa-code-branch" },
+  { label: "თანამშრომლები", path: "/employees", icon: "fa-solid fa-users-gear" },
+  { label: "სტატიები (API)", path: "/posts", icon: "fa-regular fa-newspaper" },
+  { label: "კონტაქტი", path: "/contact", icon: "fa-regular fa-envelope" }
 ];

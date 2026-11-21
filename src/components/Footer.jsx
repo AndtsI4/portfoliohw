@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { personalInfo, navItems } from '../data/portfolioData';
 
 /**
- * Footer Component
- * Clean engineering footer with navigation, system uptime note, and copyright
+ * Footer Component with React Router Links
  */
-export default function Footer({ onNavigate }) {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -14,21 +14,17 @@ export default function Footer({ onNavigate }) {
         {/* Navigation Quick Links */}
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
           <span className="text-slate-500 uppercase text-[10px]">
-            Index:
+            Navigation:
           </span>
           <ul className="flex flex-wrap items-center justify-center gap-3 text-slate-400">
             {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (onNavigate) onNavigate(item.href);
-                  }}
+              <li key={item.path}>
+                <Link
+                  to={item.path}
                   className="hover:text-tech-cyan transition-colors"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -46,7 +42,7 @@ export default function Footer({ onNavigate }) {
             </a>
           </p>
           <p className="text-slate-600 text-[11px]">
-            &copy; {currentYear} {personalInfo.name} &bull; Built with React 18 &amp; Tailwind CSS
+            &copy; {currentYear} {personalInfo.name} &bull; React Router &bull; Void Linux
           </p>
         </div>
       </div>

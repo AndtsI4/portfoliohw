@@ -9,12 +9,12 @@ export default function EmployeeCard({ employee, onDelete, onViewPosts }) {
 
   const initials = name
     ? name
-        .split(' ')
-        .filter(Boolean)
-        .map((p) => p[0])
-        .slice(0, 2)
-        .join('')
-        .toUpperCase()
+      .split(' ')
+      .filter(Boolean)
+      .map((p) => p[0])
+      .slice(0, 2)
+      .join('')
+      .toUpperCase()
     : 'U';
 
   const webUrl = website

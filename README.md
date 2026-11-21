@@ -1,61 +1,60 @@
-# ანდრია ციციშვილი — პირადი პორტფოლიო (React & Vite)
+# ანდრია ციციშვილი — პირადი პორტფოლიო (React Router & Vite)
 
-თანამედროვე, სრულად რესპონსიული პირადი პორტფოლიოს ვებსაიტი შექმნილი **React 18**-ის, **Vite**-ის, **Tailwind CSS**-ისა და **Font Awesome**-ის გამოყენებით.
+თანამედროვე, სრულად რესპონსიული მრავალგვერდიანი პირადი პორტფოლიოს ვებსაიტი შექმნილი **React 18**-ის, **React Router**-ის (`react-router` / `react-router-dom`), **Vite**-ის, **Tailwind CSS**-ისა და **Font Awesome**-ის გამოყენებით.
 
 ---
 
-## 🚀 დავალება 3: React მიგრაცია და კომპონენტური არქიტექტურა
+## 🚀 დავალება 4: React Router მრავალგვერდიანი არქიტექტურა & API ინტეგრაცია
 
-საიტი სრულად გარდაიქმნა მოდულარულ React აპლიკაციად ლექციის სტანდარტების (`geolab-asanidze/todo-list2`) მიხედვით:
-1. **მთავარი გვერდის დაყოფა კომპონენტებად:**
-   - `Navbar.jsx` — ჰედერი, ბრენდინგი, დესკტოპ ნავიგაცია და მობილური ბურგერ მენიუ `useState` ჰუკით.
-   - `Hero.jsx` — მისასალმებელი ბანერი, სტატუსის ინდიკატორი, აღწერა, CTA ღილაკები და ავატარი.
-   - `AboutSection.jsx` — ბიოგრაფია, სასწავლო სტატუსი და მიღწევების სტატისტიკური ბარათები.
-   - `Specializations.jsx` — მიმართულებების სექცია, რომელიც იყენებს მრავალჯერად `SkillCard` კომპონენტს.
-   - `ProjectsSection.jsx` — პროექტების სექცია კატეგორიების ინტერაქტიული ფილტრით (`useState`) და `ProjectCard` კომპონენტით.
-   - `EmployeesSection.jsx` — თანამშრომლების REST API სექცია (`useEffect`, `useState`), ძებნისა და წაშლის მხარდაჭერით.
-   - `ContactSection.jsx` — საკონტაქტო ბარათები და ინტერაქტიული კონტაქტის ფორმა state მართვითა და შეტყობინების დადასტურებით.
-   - `Footer.jsx` — საიტის ქვედა ნაწილი სწრაფი ნავიგაციითა და საავტორო უფლებებით.
+1. **`react-router` & `react-router-dom` ინსტალაცია და მარშრუტიზაცია:**
+   აპლიკაციაში დაინსტალირდა `react-router` და `react-router-dom` (`npm install react-router react-router-dom`), ხოლო მარშრუტები გადანაწილდა შემდეგ გვერდებზე:
+   - `/` — **მთავარი გვერდი (`HomePage.jsx`)**: სრული პორტფოლიო (Hero, ბიოგრაფია, სპეციალიზაციები, რჩეული პროექტები, გუნდის წევრები, კონტაქტი).
+   - `/about` — **ჩემ შესახებ (`AboutPage.jsx`)**: დეტალური პროფილი, საინჟინრო ფილოსოფია, ტექნიკური სტატისტიკა და ინტერაქტიული Void Linux ტერმინალი.
+   - `/skills` — **სპეციალიზაცია (`SkillsPage.jsx`)**: C++, Full-Stack Web, Arduino/IoT და ოპერაციული სისტემების დომენები.
+   - `/projects` — **პროექტები (`ProjectsPage.jsx`)**: ყველა პროექტის კატალოგი რეალურ დროში ძებნის ფუნქციონალით, კატეგორიების ფილტრებითა და არქიტექტურული დეტალებით.
+   - `/employees` — **თანამშრომლები (`EmployeesPage.jsx`)**: JSONPlaceholder `/users` რესურსი (GET, POST, DELETE, ძებნა და პოსტების მოდალი).
+   - `/posts` — **ტექნიკური სტატიები (`PostsPage.jsx`)**: JSONPlaceholder `/posts` რესურსი რეალურ დროში საკვანძო სიტყვებით ძებნით, ახალი სტატიის დამატებით (POST) და კომენტარების ჩამოსაშლელი აკორდეონით (`GET /posts/:id/comments`).
+   - `/contact` — **კონტაქტი (`ContactPage.jsx`)**: საკონტაქტო არხები, პირდაპირი ელ-ფოსტის კოპირების ხელსაწყო და React state-ით მართული ფორმა.
+   - `*` — **404 Not Found (`NotFoundPage.jsx`)**: ტექნიკური 404 გვერდი მთავარზე დაბრუნების ბმულით.
 
-2. **მრავალჯერადად გამოყენებადი (Reusable) კომპონენტები:**
-   - `SectionHeader.jsx` — უნიფიცირებული სათაურის, ბეიჯისა და მოქმედების ღილაკების კომპონენტი, რომელიც გამოიყენება ყველა სექციაში (`props`: `badge`, `badgeColor`, `title`, `icon`, `description`, `action`).
-   - `SkillCard.jsx` — მიმართულებების ბარათი (`props`: `iconText`, `iconColor`, `title`, `description`, `tags`).
-   - `ProjectCard.jsx` — პროექტის ქარდი სურათის პრევიუთი, ტეგებით, ბეიჯითა და GitHub ბმულებით (`props`: `project`).
-   - `EmployeeCard.jsx` — API-დან წამოღებული თანამშრომლის ბარათი გრადიენტული ავატარით, დეტალებითა და წაშლის ქმედებით (`props`: `employee`, `onDelete`).
-   - `StatCard.jsx` — სტატისტიკური მეტრიკის ბარათი აიქონითა და გრადიენტული რიცხვით (`props`: `value`, `label`, `icon`).
+2. **JSONPlaceholder API ინტეგრაცია & რესურსები:**
+   - **`/posts` რესურსი**:
+     - `GET /posts` — 100 სტატიის დინამიური ჩატვირთვა.
+     - **ძებნის ფუნქციონალი** — რეალურ დროში ძებნა სათაურისა და ტექსტის მიხედვით შედეგების მთვლელით (`X / 100`).
+     - `GET /posts/:id/comments` — კონკრეტული სტატიის კომენტარების ამოღება და ჩვენება.
+     - `POST /posts` — ახალი სტატიის გამოქვეყნების ფორმა `HTTP 201 Created` დადასტურებით.
+   - **`/users` რესურსი**:
+     - `GET /users` — თანამშრომლების სიის წამოღება.
+     - **ძებნა** — ფილტრაცია სახელის, მეილისა და კომპანიის მიხედვით.
+     - `POST /users` — ახალი თანამშრომლის დამატება `HTTP 201 Created` სტატუსით.
+     - `DELETE /users/:id` — თანამშრომლის წაშლა `HTTP 200 OK` სტატუსით.
 
-3. **მონაცემთა მოდელირება (Props & Data Separation):**
-   - მონაცემები გამოყოფილია სუფთა მოდულში: `src/data/portfolioData.js`.
-   - კომპონენტები იღებენ მონაცემებს `props`-ის საშუალებით და იყენებენ `.map()` მეთოდს გამეორებადი ელემენტების დასარენდერებლად.
-
-4. **REST API & ინტერაქტიული State:**
-   - `EmployeesSection.jsx` იყენებს `useEffect`-ს `https://jsonplaceholder.typicode.com/users` მისამართიდან მონაცემების წამოსაღებად (Loading & Error state-ებით).
-   - ძებნის ველის ფილტრაცია სახელის, მეილისა და კომპანიის მიხედვით რეალურ დროში.
-   - მობილური მენიუს გახსნა/დახურვა React State-ით.
-   - კატეგორიების დინამიური ფილტრი პროექტების სექციაში.
+3. **ავტომატური Scroll-To-Top:**
+   - [ScrollToTop.jsx](file:///c:/Users/User/Desktop/ანდრია%20ციციშვილი%20-%20დავალება%202/src/components/ScrollToTop.jsx) კომპონენტი, რომელიც გვერდის შეცვლისას ხედს ავტომატურად აბრუნებს გვერდის დასაწყისში.
 
 ---
 
 ## 🛠 გამოყენებული ტექნოლოგიები
 
-- **React 18** (Functional Components, Hooks: `useState`, `useEffect`)
-- **Vite** (Next Generation Frontend Tooling)
-- **Tailwind CSS** & PostCSS / Autoprefixer
+- **React 18**
+- **React Router 7** (`react-router`, `react-router-dom`)
+- **Vite**
+- **Tailwind CSS**
 - **Font Awesome 6.5.1**
-- **JSONPlaceholder API**
+- **JSONPlaceholder REST API** (`/users`, `/posts`, `/comments`)
 
 ---
 
 ## 💻 პროექტის გაშვება ლოკალურად
 
 ```bash
-# 1. დამოკიდებულებების ინსტალაცია
+# დამოკიდებულებების ინსტალაცია
 npm install
 
-# 2. დეველოპმენტ სერვერის გაშვება
+# დეველოპმენტ სერვერის გაშვება (Vite)
 npm run dev
 
-# 3. საწარმოო (Production) ბილდის აწყობა
+# საწარმოო (Production) ბილდის აწყობა
 npm run build
 ```
 
@@ -64,33 +63,38 @@ npm run build
 ## 📁 პროექტის სტრუქტურა
 
 ```text
-├── legacy-html/             # წინა დავალების სტატიკური HTML ფაილები
-├── public/
-│   └── images/              # პროექტების SVG ილუსტრაციები და ავატარი
 ├── src/
 │   ├── components/
 │   │   ├── AboutSection.jsx
 │   │   ├── ContactSection.jsx
-│   │   ├── EmployeeCard.jsx     # Reusable
+│   │   ├── EmployeeCard.jsx
 │   │   ├── EmployeesSection.jsx
 │   │   ├── Footer.jsx
 │   │   ├── Hero.jsx
 │   │   ├── Navbar.jsx
-│   │   ├── ProjectCard.jsx      # Reusable
+│   │   ├── ProjectCard.jsx
 │   │   ├── ProjectsSection.jsx
-│   │   ├── SectionHeader.jsx    # Reusable
-│   │   ├── SkillCard.jsx        # Reusable
+│   │   ├── ScrollToTop.jsx
+│   │   ├── SectionHeader.jsx
+│   │   ├── SkillCard.jsx
 │   │   ├── Specializations.jsx
-│   │   └── StatCard.jsx         # Reusable
+│   │   ├── StatCard.jsx
+│   │   └── TerminalWidget.jsx
 │   ├── data/
-│   │   └── portfolioData.js     # Data definitions
-│   ├── App.jsx
+│   │   └── portfolioData.js
+│   ├── pages/
+│   │   ├── AboutPage.jsx
+│   │   ├── ContactPage.jsx
+│   │   ├── EmployeesPage.jsx
+│   │   ├── HomePage.jsx
+│   │   ├── NotFoundPage.jsx
+│   │   ├── PostsPage.jsx        # JSONPlaceholder /posts with live search
+│   │   ├── ProjectsPage.jsx     # Projects with live search & filters
+│   │   └── SkillsPage.jsx
+│   ├── App.jsx                  # React Router Routes
 │   ├── index.css
-│   └── main.jsx
+│   └── main.jsx                 # BrowserRouter
 ├── index.html
 ├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-├── vite.config.js
-└── README.md
+└── vite.config.js
 ```
